@@ -13,6 +13,7 @@ public class Controller implements ControllerInterface {
     public Controller(WisielecModelInterface model){
         this.model = model;
     }
+
     public void startGry(){
 
     }
