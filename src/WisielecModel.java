@@ -10,23 +10,19 @@ import java.util.ArrayList;
 public class WisielecModel implements WisielecModelInterface {
     //pola
     String word;
-    ArrayList<Integer> correctAnswers;
+    ArrayList<Integer> correctAnswers = new ArrayList<Integer>();
     int incorrectGuesses;
-    ArrayList wisielecObservers;
+    ArrayList wisielecObservers = new ArrayList();
 
     //todo: potem tutaj bedzie inicjalizacja z pliku
     public void initializeWithRandom(){
         word = "matula";
-        correctAnswers = new ArrayList<Integer>();
         incorrectGuesses = 0;
-        wisielecObservers = new ArrayList();
     }
 
     public void initialize(String word){
         this.word = word;
-        correctAnswers = new ArrayList<Integer>();
         incorrectGuesses = 0;
-        wisielecObservers = new ArrayList();
     }
 
     public String getWord(){
