@@ -36,6 +36,7 @@ public class WisielecModel implements WisielecModelInterface {
         return correctAnswers;
     }
 
+
     public void enterLetter(char c){
         char[] charArray = word.toCharArray();
         boolean hasLetter = false;
