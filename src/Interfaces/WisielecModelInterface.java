@@ -6,13 +6,14 @@ import java.util.ArrayList;
  * Created by user_name on 18.07.2017.
  */
 public interface WisielecModelInterface {
-    void initialize();
+    void initializeWithRandom();
+    void initialize(String word);
 
     String getWord();
-    ArrayList getValidIndexes();
+    ArrayList getCorrectAnswers();
 
     void enterLetter(char c);
-    void checkForWin();
+    GameStates checkForWin();
 
     void registerObserver(WisielecObserver o);
     void removeObserver(WisielecObserver o);
