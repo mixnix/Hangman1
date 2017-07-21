@@ -61,4 +61,12 @@ public class WisielecModel implements WisielecModelInterface {
     public void removeObserver(WisielecObserver o){
         wisielecObservers.remove(o);
     }
+
+
+    public void notifyWisielecObservers(){
+        for(int i = 0; i < wisielecObservers.size(); i++){
+            WisielecObserver observer = (WisielecObserver) wisielecObservers.get(i);
+            observer.updateGame();
+        }
+    }
 }
