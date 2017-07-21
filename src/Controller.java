@@ -12,6 +12,10 @@ public class Controller implements ControllerInterface {
 
     public Controller(WisielecModelInterface model){
         this.model = model;
+        view = new WisielecView(this, model);
+        view.createView();
+        view.createControls();
+        model.initializeWithRandom();
     }
 
     public void startGry(){

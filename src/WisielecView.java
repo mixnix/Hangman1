@@ -22,6 +22,10 @@ public class WisielecView implements ActionListener, WisielecObserver {
 
     }
 
+    public void createControls(){
+
+    }
+
     public void actionPerformed(ActionEvent event){
 
     }
