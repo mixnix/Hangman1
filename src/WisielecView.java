@@ -33,4 +33,8 @@ public class WisielecView implements ActionListener, WisielecObserver {
     public void updateGame(){
 
     }
+
+    public void koniecGry(){
+
+    }
 }

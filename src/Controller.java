@@ -15,17 +15,17 @@ public class Controller implements ControllerInterface {
         view = new WisielecView(this, model);
         view.createView();
         view.createControls();
-        model.initializeWithRandom();
     }
 
     public void startGry(){
-
+        model.initializeWithRandom();
     }
-    public void wprowadzenieLiterki(){
-
+    public void wprowadzenieLiterki(char c){
+        model.enterLetter(c);
+        model.checkForWin();
     }
     public void koniecGry(){
-
+        view.koniecGry();
     }
 
 }
