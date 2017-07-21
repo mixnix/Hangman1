@@ -14,6 +14,7 @@ public interface WisielecModelInterface {
 
     void enterLetter(char c);
     void checkForWin();
+    int getIncorrectGuesses();
 
     void registerObserver(WisielecObserver o);
     void removeObserver(WisielecObserver o);
