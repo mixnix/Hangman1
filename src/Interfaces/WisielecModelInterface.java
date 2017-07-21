@@ -10,6 +10,7 @@ public interface WisielecModelInterface {
     void initialize(String word);
 
     String getWord();
+    String getDisplayWord();
     ArrayList getCorrectAnswers();
 
     void enterLetter(char c);

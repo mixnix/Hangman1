@@ -11,25 +11,42 @@ public class WisielecModel implements WisielecModelInterface {
     //pola
     String word;
     ArrayList<Integer> correctAnswers = new ArrayList<Integer>();
-    int incorrectGuesses;
+    int incorrectGuesses = 0;
     ArrayList wisielecObservers = new ArrayList();
     GameStates stanGry;
 
     //todo: potem tutaj bedzie inicjalizacja z pliku
     public void initializeWithRandom(){
         word = "matula";
-        incorrectGuesses = 0;
         notifyWisielecObservers();
     }
 
     public void initialize(String word){
         this.word = word;
-        incorrectGuesses = 0;
         notifyWisielecObservers();
     }
 
     public String getWord(){
         return word;
+    }
+
+    public String getDisplayWord(){
+        String toDisplay = "";
+
+        for(int i = 0; i < word.length(); i++){
+            boolean wstawicLiterke = false;
+            for(int j = 0; j < correctAnswers.size(); j++){
+                if(correctAnswers.get(j) == i)
+                    wstawicLiterke = true;
+            }
+            if(wstawicLiterke){
+                toDisplay = toDisplay + word.charAt(i) + " ";
+            }else{
+                toDisplay = toDisplay + "_ ";
+            }
+
+        }
+        return toDisplay;
     }
 
     public ArrayList getCorrectAnswers(){
