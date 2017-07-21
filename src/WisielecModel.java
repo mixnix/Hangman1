@@ -15,6 +15,10 @@ public class WisielecModel implements WisielecModelInterface {
     ArrayList wisielecObservers = new ArrayList();
     GameStates stanGry;
 
+    public WisielecModel(){
+        initializeWithRandom();
+    }
+
     //todo: potem tutaj bedzie inicjalizacja z pliku
     public void initializeWithRandom(){
         word = "matula";

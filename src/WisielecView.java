@@ -48,7 +48,7 @@ public class WisielecView implements ActionListener, WisielecObserver {
         panelHangmanPicture.add(picLabel);
 
         //panel z wyswietlanym zgadywanym slowem
-        JLabel slowoLabel = new JLabel("sl owo _ _ testowe", SwingConstants.CENTER);
+        JLabel slowoLabel = new JLabel(model.getDisplayWord(), SwingConstants.CENTER);
 
         panelDisplayedWord = new JPanel(new BorderLayout());
         panelDisplayedWord.add(slowoLabel, BorderLayout.CENTER);
