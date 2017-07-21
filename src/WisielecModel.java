@@ -46,7 +46,7 @@ public class WisielecModel implements WisielecModelInterface {
             incorrectGuesses++;
     }
 
-    public GameStates checkForWin(){
+    public void checkForWin(){
         if(incorrectGuesses >= 7)
             return GameStates.LOSE;
         if(correctAnswers.size() == word.length())

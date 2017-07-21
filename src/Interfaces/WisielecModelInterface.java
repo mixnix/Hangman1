@@ -13,7 +13,7 @@ public interface WisielecModelInterface {
     ArrayList getCorrectAnswers();
 
     void enterLetter(char c);
-    GameStates checkForWin();
+    void checkForWin();
 
     void registerObserver(WisielecObserver o);
     void removeObserver(WisielecObserver o);
