@@ -20,10 +20,11 @@ public class WisielecView implements ActionListener, WisielecObserver {
 
     //elementy widoku
     JFrame mainViewFrame;
+    JPanel mainJPanel;
     //panel z obrazkiem
     JPanel panelHangmanPicture;
     BufferedImage imgHangmanPicture;
-    JPanel panelScreenPicture;
+    JPanel panelScreenKeyboard;
     JPanel panelDisplayedWord;
 
     public WisielecView(ControllerInterface controller, WisielecModelInterface model){
@@ -35,7 +36,10 @@ public class WisielecView implements ActionListener, WisielecObserver {
     public void createView(){
         //panel z obrazkiem
         try {
-            imgHangmanPicture = ImageIO.read(new File("wisielec\\"+model.getIncorrectGuesses()+".png"));
+            //            imgHangmanPicture = ImageIO.read(new File("wisielec\\"+model.getIncorrectGuesses()+".png"));
+            //w wersji testowej na sztywno wyswietla szosty obrazek
+            //todo: usunac ten na sztywno wyswietlany
+            imgHangmanPicture = ImageIO.read(new File("wisielec\\"+"6"+".png"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -43,11 +47,21 @@ public class WisielecView implements ActionListener, WisielecObserver {
         panelHangmanPicture = new JPanel(new GridLayout(1,1));
         panelHangmanPicture.add(picLabel);
 
-        //glowny frame
-        mainViewFrame = new JFrame("View");
+        //panel z wyswietlanym zgadywanym slowem
+        JLabel slowoLabel = new JLabel("sl owo _ _ testowe", SwingConstants.CENTER);
+
+        panelDisplayedWord = new JPanel(new BorderLayout());
+        panelDisplayedWord.add(slowoLabel, BorderLayout.CENTER);
+
+        //glowny frame i panel
+        mainJPanel = new JPanel(new GridLayout(2,2));
+        mainJPanel.add(panelHangmanPicture);
+        mainJPanel.add(panelDisplayedWord);
+
+        mainViewFrame = new JFrame("Wisielec");
         mainViewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainViewFrame.setSize(new Dimension(1000,500));
-        mainViewFrame.getContentPane().add(panelHangmanPicture, BorderLayout.CENTER);
+        mainViewFrame.getContentPane().add(mainJPanel, BorderLayout.CENTER);
         mainViewFrame.pack();
         mainViewFrame.setVisible(true);
     }
