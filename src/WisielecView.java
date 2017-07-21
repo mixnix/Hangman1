@@ -1,6 +1,7 @@
 import Interfaces.ControllerInterface;
 import Interfaces.WisielecModelInterface;
 import Interfaces.WisielecObserver;
+import javafx.scene.control.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -27,7 +28,7 @@ public class WisielecView implements ActionListener, WisielecObserver {
     BufferedImage imgHangmanPicture;
     JPanel panelScreenKeyboard;
     JPanel panelDisplayedWord;
-    ArrayList keyboardButtons = new ArrayList();
+    ArrayList<JButton> keyboardButtons = new ArrayList<>();
 
     public WisielecView(ControllerInterface controller, WisielecModelInterface model){
         this.controller = controller;
@@ -87,7 +88,15 @@ public class WisielecView implements ActionListener, WisielecObserver {
     }
 
     public void createControls(){
-
+        for(JButton b : keyboardButtons){
+            char c = b.getText().toCharArray()[0];
+            b.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    controller.wprowadzenieLiterki(c);
+                }
+            });
+        }
     }
 
     public void actionPerformed(ActionEvent event){

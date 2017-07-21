@@ -95,6 +95,7 @@ public class WisielecModel implements WisielecModelInterface {
         for(int i = 0; i < wisielecObservers.size(); i++){
             WisielecObserver observer = (WisielecObserver) wisielecObservers.get(i);
             observer.updateGame();
+
         }
     }
 }
