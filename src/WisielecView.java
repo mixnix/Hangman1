@@ -26,9 +26,13 @@ public class WisielecView implements ActionListener, WisielecObserver {
     //panel z obrazkiem
     JPanel panelHangmanPicture;
     BufferedImage imgHangmanPicture;
+    JLabel picLabel;
+    //klawiatura ekranowa
     JPanel panelScreenKeyboard;
-    JPanel panelDisplayedWord;
     ArrayList<JButton> keyboardButtons = new ArrayList<>();
+    //wyswietlane zgadywane slowo
+    JPanel panelDisplayedWord;
+    JLabel slowoLabel;
 
     public WisielecView(ControllerInterface controller, WisielecModelInterface model){
         this.controller = controller;
@@ -39,19 +43,16 @@ public class WisielecView implements ActionListener, WisielecObserver {
     public void createView(){
         //panel z obrazkiem
         try {
-            //            imgHangmanPicture = ImageIO.read(new File("wisielec\\"+model.getIncorrectGuesses()+".png"));
-            //w wersji testowej na sztywno wyswietla szosty obrazek
-            //todo: usunac ten na sztywno wyswietlany
-            imgHangmanPicture = ImageIO.read(new File("wisielec\\"+"6"+".png"));
+            imgHangmanPicture = ImageIO.read(new File("wisielec\\"+model.getIncorrectGuesses()+".png"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        JLabel picLabel = new JLabel(new ImageIcon(imgHangmanPicture));
+        picLabel = new JLabel(new ImageIcon(imgHangmanPicture));
         panelHangmanPicture = new JPanel(new GridLayout(1,1));
         panelHangmanPicture.add(picLabel);
 
         //panel z wyswietlanym zgadywanym slowem
-        JLabel slowoLabel = new JLabel(model.getDisplayWord(), SwingConstants.CENTER);
+        slowoLabel = new JLabel(model.getDisplayWord(), SwingConstants.CENTER);
 
         panelDisplayedWord = new JPanel(new BorderLayout());
         panelDisplayedWord.add(slowoLabel, BorderLayout.CENTER);
@@ -104,7 +105,13 @@ public class WisielecView implements ActionListener, WisielecObserver {
     }
 
     public void updateGame(){
-
+        slowoLabel.setText(model.getDisplayWord());
+        try {
+            imgHangmanPicture = ImageIO.read(new File("wisielec\\"+model.getIncorrectGuesses()+".png"));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        picLabel.setIcon(new ImageIcon(imgHangmanPicture));
     }
 
     public void koniecGry(){
