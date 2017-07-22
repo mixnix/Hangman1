@@ -2,7 +2,6 @@ import Interfaces.ControllerInterface;
 import Interfaces.GameStates;
 import Interfaces.WisielecModelInterface;
 import Interfaces.WisielecObserver;
-import javafx.scene.control.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -35,8 +34,8 @@ public class WisielecView implements ActionListener, WisielecObserver {
     JPanel panelDisplayedWord;
     JLabel slowoLabel;
     //panel wyswietlany w przypadku wygranej gry
-    JPanel winPanel;
-    JLabel winLabel;
+    JPanel endGamePanel;
+    JLabel endGameLabel;
 
     public WisielecView(ControllerInterface controller, WisielecModelInterface model){
         this.controller = controller;
@@ -122,11 +121,14 @@ public class WisielecView implements ActionListener, WisielecObserver {
         mainViewFrame.remove(mainJPanel);
 
         if(a.equals(GameStates.WIN)){
-            winLabel = new JLabel("Brawo, wygrałeś!", SwingConstants.CENTER);
-            winPanel = new JPanel(new BorderLayout());
-            winPanel.add(winLabel, BorderLayout.CENTER);
+            endGameLabel = new JLabel("Brawo, wygrałeś!", SwingConstants.CENTER);
 
-            mainViewFrame.add(winPanel);
+        } else{
+            endGameLabel = new JLabel("Brawo, przegrałeś!", SwingConstants.CENTER);
+
         }
+        endGamePanel = new JPanel(new BorderLayout());
+        endGamePanel.add(endGameLabel, BorderLayout.CENTER);
+        mainViewFrame.add(endGamePanel);
     }
 }
