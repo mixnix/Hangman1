@@ -33,6 +33,9 @@ public class WisielecView implements ActionListener, WisielecObserver {
     //wyswietlane zgadywane slowo
     JPanel panelDisplayedWord;
     JLabel slowoLabel;
+    //panel wyswietlany w przypadku wygranej gry
+    JPanel winPanel;
+    JLabel winLabel;
 
     public WisielecView(ControllerInterface controller, WisielecModelInterface model){
         this.controller = controller;
@@ -115,6 +118,10 @@ public class WisielecView implements ActionListener, WisielecObserver {
     }
 
     public void koniecGry(){
+        mainViewFrame.remove(mainJPanel);
 
+        winLabel = new JLabel("Brawo, wygrałeś!");
+        winPanel = new JPanel(new BorderLayout());
+        winPanel.add(winLabel, BorderLayout.CENTER);
     }
 }

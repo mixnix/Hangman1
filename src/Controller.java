@@ -23,6 +23,7 @@ public class Controller implements ControllerInterface {
     public void wprowadzenieLiterki(char c){
         model.enterLetter(c);
         model.checkForWin();
+
     }
     public void koniecGry(){
         view.koniecGry();
