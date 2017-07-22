@@ -6,5 +6,5 @@ package Interfaces;
 public interface ControllerInterface {
     void startGry();
     void wprowadzenieLiterki(char c);
-    void koniecGry();
+    void koniecGry(GameStates gs);
 }
