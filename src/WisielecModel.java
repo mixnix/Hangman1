@@ -78,11 +78,20 @@ public class WisielecModel implements WisielecModelInterface {
     public void checkForWin(){
         if(incorrectGuesses >= 7)
             stanGry = GameStates.LOSE;
-        if(correctAnswers.size() == word.length())
+        else if(correctAnswers.size() == word.length())
             stanGry = GameStates.WIN;
         else
             stanGry = GameStates.IN_PROGRESS;
         notifyWisielecObservers();
+    }
+
+    private void updateGameState(){
+        if(incorrectGuesses >= 7)
+            stanGry = GameStates.LOSE;
+        else if(correctAnswers.size() == word.length())
+            stanGry = GameStates.WIN;
+        else
+            stanGry = GameStates.IN_PROGRESS;
     }
 
     public void registerObserver(WisielecObserver o){
@@ -94,6 +103,7 @@ public class WisielecModel implements WisielecModelInterface {
 
 
     public void notifyWisielecObservers(){
+        updateGameState();
         for(int i = 0; i < wisielecObservers.size(); i++){
             WisielecObserver observer = (WisielecObserver) wisielecObservers.get(i);
             observer.updateGame();

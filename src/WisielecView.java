@@ -108,6 +108,8 @@ public class WisielecView implements ActionListener, WisielecObserver {
     }
 
     public void updateGame(){
+        if(!model.getGameState().equals(GameStates.IN_PROGRESS))
+            return;
         slowoLabel.setText(model.getDisplayWord());
         try {
             imgHangmanPicture = ImageIO.read(new File("wisielec\\"+model.getIncorrectGuesses()+".png"));
