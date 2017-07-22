@@ -12,6 +12,7 @@ public interface WisielecModelInterface {
     String getWord();
     String getDisplayWord();
     ArrayList getCorrectAnswers();
+    GameStates getGameState();
 
     void enterLetter(char c);
     void checkForWin();

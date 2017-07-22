@@ -59,6 +59,8 @@ public class WisielecModel implements WisielecModelInterface {
 
     public int getIncorrectGuesses(){ return incorrectGuesses; }
 
+    public GameStates getGameState(){ return stanGry;    }
+
     public void enterLetter(char c){
         char[] charArray = word.toCharArray();
         boolean hasLetter = false;
