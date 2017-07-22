@@ -25,11 +25,12 @@ public class Controller implements ControllerInterface {
         model.enterLetter(c);
         model.checkForWin();
         if(model.getGameState().equals(GameStates.WIN)){
-            view.koniecGry();
+            koniecGry();
         }
+
     }
     public void koniecGry(){
-        view.koniecGry();
+        view.koniecGry(GameStates.WIN);
     }
 
 }

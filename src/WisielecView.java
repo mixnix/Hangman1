@@ -1,4 +1,5 @@
 import Interfaces.ControllerInterface;
+import Interfaces.GameStates;
 import Interfaces.WisielecModelInterface;
 import Interfaces.WisielecObserver;
 import javafx.scene.control.*;
@@ -117,13 +118,15 @@ public class WisielecView implements ActionListener, WisielecObserver {
         picLabel.setIcon(new ImageIcon(imgHangmanPicture));
     }
 
-    public void koniecGry(){
+    public void koniecGry(GameStates a){
         mainViewFrame.remove(mainJPanel);
 
-        winLabel = new JLabel("Brawo, wygrałeś!", SwingConstants.CENTER);
-        winPanel = new JPanel(new BorderLayout());
-        winPanel.add(winLabel, BorderLayout.CENTER);
+        if(a.equals(GameStates.WIN)){
+            winLabel = new JLabel("Brawo, wygrałeś!", SwingConstants.CENTER);
+            winPanel = new JPanel(new BorderLayout());
+            winPanel.add(winLabel, BorderLayout.CENTER);
 
-        mainViewFrame.add(winPanel);
+            mainViewFrame.add(winPanel);
+        }
     }
 }
