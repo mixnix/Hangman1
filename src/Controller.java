@@ -1,4 +1,5 @@
 import Interfaces.ControllerInterface;
+import Interfaces.GameStates;
 import Interfaces.WisielecModelInterface;
 
 import javax.naming.ldap.Control;
@@ -23,7 +24,9 @@ public class Controller implements ControllerInterface {
     public void wprowadzenieLiterki(char c){
         model.enterLetter(c);
         model.checkForWin();
-
+        if(model.getGameState().equals(GameStates.WIN)){
+            view.koniecGry();
+        }
     }
     public void koniecGry(){
         view.koniecGry();

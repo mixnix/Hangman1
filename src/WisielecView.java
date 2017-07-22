@@ -120,8 +120,10 @@ public class WisielecView implements ActionListener, WisielecObserver {
     public void koniecGry(){
         mainViewFrame.remove(mainJPanel);
 
-        winLabel = new JLabel("Brawo, wygrałeś!");
+        winLabel = new JLabel("Brawo, wygrałeś!", SwingConstants.CENTER);
         winPanel = new JPanel(new BorderLayout());
         winPanel.add(winLabel, BorderLayout.CENTER);
+
+        mainViewFrame.add(winPanel);
     }
 }
