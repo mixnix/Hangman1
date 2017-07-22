@@ -13,7 +13,7 @@ public class WisielecModel implements WisielecModelInterface {
     ArrayList<Integer> correctAnswers = new ArrayList<Integer>();
     int incorrectGuesses = 0;
     ArrayList wisielecObservers = new ArrayList();
-    GameStates stanGry;
+    GameStates stanGry = GameStates.BEFORE_INITIALIZATION;
 
     public WisielecModel(){
         initializeWithRandom();

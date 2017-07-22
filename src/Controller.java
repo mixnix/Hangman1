@@ -26,6 +26,8 @@ public class Controller implements ControllerInterface {
         model.checkForWin();
         if(model.getGameState().equals(GameStates.WIN)){
             koniecGry(GameStates.WIN);
+        } else if(model.getGameState().equals(GameStates.LOSE)){
+            koniecGry(GameStates.LOSE);
         }
 
     }
